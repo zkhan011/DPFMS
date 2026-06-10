@@ -1,0 +1,19 @@
+// SPDX-FileCopyrightText: Zishan Khan
+// SPDX-License-Identifier: MIT
+plugins {
+  id 'war'
+}
+
+apply from: "${rootDir}/gradle/java-project.gradle"
+apply from: "${rootDir}/gradle/java-codequality.gradle"
+
+dependencies {
+  implementation libs.jackson.databind
+  implementation libs.jackson.datatype.jsr310
+  compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+}
+
+tasks.register('release') {
+  dependsOn build
+}
+

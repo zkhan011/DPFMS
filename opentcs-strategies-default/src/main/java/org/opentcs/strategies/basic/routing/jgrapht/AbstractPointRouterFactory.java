@@ -120,10 +120,12 @@ public abstract class AbstractPointRouterFactory
    * Returns a shortest path algorithm implementation working on the given graph.
    *
    * @param graph The graph.
+   * @param points The model points, indexed by name.
    * @return A shortest path algorithm implementation working on the given graph.
    */
   protected abstract ShortestPathAlgorithm<Vertex, Edge> createShortestPathAlgorithm(
-      Graph<Vertex, Edge> graph
+      Graph<Vertex, Edge> graph,
+      Map<String, Point> points
   );
 
   private PointRouter createPointRouter(GraphResult graphResult) {
@@ -132,7 +134,7 @@ public abstract class AbstractPointRouterFactory
         .collect(Collectors.toMap(Point::getName, Function.identity()));
 
     PointRouter router = new ShortestPathPointRouter(
-        createShortestPathAlgorithm(graphResult.getGraph()),
+        createShortestPathAlgorithm(graphResult.getGraph(), points),
         points,
         graphResult.getGraph().vertexSet()
     );

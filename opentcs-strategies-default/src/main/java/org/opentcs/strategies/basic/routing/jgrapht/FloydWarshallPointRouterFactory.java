@@ -4,6 +4,7 @@ package org.opentcs.strategies.basic.routing.jgrapht;
 
 import jakarta.annotation.Nonnull;
 import jakarta.inject.Inject;
+import java.util.Map;
 import org.jgrapht.Graph;
 import org.jgrapht.alg.interfaces.ShortestPathAlgorithm;
 import org.jgrapht.alg.shortestpath.FloydWarshallShortestPaths;
@@ -32,7 +33,8 @@ public class FloydWarshallPointRouterFactory
 
   @Override
   protected ShortestPathAlgorithm<Vertex, Edge> createShortestPathAlgorithm(
-      Graph<Vertex, Edge> graph
+      Graph<Vertex, Edge> graph,
+      Map<String, org.opentcs.data.model.Point> points
   ) {
     return new FloydWarshallShortestPaths<>(graph);
   }
