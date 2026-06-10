@@ -22,6 +22,7 @@ public interface ShortestPathConfiguration {
       description = {
           "The routing algorithm to be used. Valid values:",
           "'DIJKSTRA': Routes are computed using Dijkstra's algorithm.",
+          "'ASTAR': Routes are computed using the A* algorithm.",
           "'BELLMAN_FORD': Routes are computed using the Bellman-Ford algorithm.",
           "'FLOYD_WARSHALL': Routes are computed using the Floyd-Warshall algorithm."},
       changesApplied = ConfigurationEntry.ChangesApplied.ON_APPLICATION_START
@@ -54,6 +55,10 @@ public interface ShortestPathConfiguration {
      * The Dijkstra algorithm.
      */
     DIJKSTRA(false),
+    /**
+     * The A* algorithm with a Euclidean-distance heuristic.
+     */
+    ASTAR(false),
     /**
      * The Bellman-Ford algorithm.
      */

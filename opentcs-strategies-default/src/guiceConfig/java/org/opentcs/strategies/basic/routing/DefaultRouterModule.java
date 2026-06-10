@@ -13,6 +13,7 @@ import org.opentcs.strategies.basic.routing.edgeevaluator.EdgeEvaluatorExplicitP
 import org.opentcs.strategies.basic.routing.edgeevaluator.EdgeEvaluatorHops;
 import org.opentcs.strategies.basic.routing.edgeevaluator.EdgeEvaluatorTravelTime;
 import org.opentcs.strategies.basic.routing.edgeevaluator.ExplicitPropertiesConfiguration;
+import org.opentcs.strategies.basic.routing.jgrapht.AStarPointRouterFactory;
 import org.opentcs.strategies.basic.routing.jgrapht.BellmanFordPointRouterFactory;
 import org.opentcs.strategies.basic.routing.jgrapht.DijkstraPointRouterFactory;
 import org.opentcs.strategies.basic.routing.jgrapht.FloydWarshallPointRouterFactory;
@@ -72,6 +73,11 @@ public class DefaultRouterModule
       case DIJKSTRA:
         bind(PointRouterFactory.class)
             .to(DijkstraPointRouterFactory.class);
+        break;
+      case ASTAR:
+        LOG.info("Using A* as the shortest-path routing strategy.");
+        bind(PointRouterFactory.class)
+            .to(AStarPointRouterFactory.class);
         break;
       case BELLMAN_FORD:
         bind(PointRouterFactory.class)

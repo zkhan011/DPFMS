@@ -1,0 +1,5 @@
+<%-- Web frontend component for openTCS. Author: Zishan Khan. --%>
+<%@ include file="layout/header.jsp" %><h1>Transport Orders</h1>
+<form id="order-form" class="toolbar"><label>Name <input name="name" required></label><label>Source <select name="source" id="order-source" required></select></label><label>Destination <select name="destination" id="order-destination" required></select></label><label>Optional vehicle <input name="intendedVehicle"></label><button>Create order</button></form>
+<div class="table-wrap"><table><thead><tr><th>Name</th><th>State</th><th>Intended vehicle</th><th>Processing vehicle</th><th>Source</th><th>Destination</th><th>Created</th><th>Finished</th></tr></thead><tbody id="order-rows"></tbody></table></div>
+<script defer src="${pageContext.request.contextPath}/static/js/orders.js"></script><%@ include file="layout/footer.jsp" %>
