@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: Zishan Khan
+# SPDX-License-Identifier: MIT
+services:
+  kernel:
+    build:
+      context: .
+      target: kernel
+    ports:
+      - "55200:55200"
+    volumes:
+      - kernel-data:/opt/opentcs/data
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      target: web
+    environment:
+      OPENTCS_WEB_KERNEL_API_BASE_URL: http://kernel:55200/v1
+      OPENTCS_WEB_ACCESS_KEY: ${OPENTCS_WEB_ACCESS_KEY:-}
+      ROUTING_STRATEGY: ${ROUTING_STRATEGY:-DEFAULT}
+      MAP_PROVIDER: ${MAP_PROVIDER:-OSM}
+      MAP_ORIGIN_LATITUDE: ${MAP_ORIGIN_LATITUDE:-}
+      MAP_ORIGIN_LONGITUDE: ${MAP_ORIGIN_LONGITUDE:-}
+      MAP_SCALE_METERS_PER_UNIT: ${MAP_SCALE_METERS_PER_UNIT:-0.001}
+      MAP_ROTATION_DEGREES: ${MAP_ROTATION_DEGREES:-0}
+      MAP_DEFAULT_ZOOM: ${MAP_DEFAULT_ZOOM:-18}
+      GOOGLE_MAPS_API_KEY: ${GOOGLE_MAPS_API_KEY:-}
+    depends_on:
+      - kernel
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+volumes:
+  kernel-data:
