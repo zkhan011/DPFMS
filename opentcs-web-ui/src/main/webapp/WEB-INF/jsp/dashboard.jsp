@@ -1,8 +1,9 @@
 <%-- Web frontend component for openTCS. Author: Zishan Khan. --%>
 <%@ include file="layout/header.jsp" %>
-<h1>Dashboard</h1><section class="cards">
-<article><h2>Kernel status</h2><b id="kernel-status">Loading…</b></article><article><h2>System mode</h2><b id="system-mode">Operating / API</b></article>
-<article><h2>Vehicles</h2><b id="vehicle-count">—</b></article><article><h2>Active vehicles</h2><b id="active-count">—</b></article>
-<article><h2>Transport orders</h2><b id="order-count">—</b></article><article><h2>Failed orders</h2><b id="failed-count">—</b></article></section>
-<section class="panel"><h2>Recent warnings</h2><p id="status-message">Waiting for kernel status…</p></section>
+<section class="hero"><div><span class="eyebrow">Live operations</span><h1>Your fleet at a glance</h1><p>Monitor vehicles, routes, and transport orders from one real-time workspace.</p></div><a class="button" href="${pageContext.request.contextPath}/plant-overview">Open plant view <span>→</span></a></section>
+<section class="cards">
+<article class="status-card accent-blue"><span class="card-icon">◎</span><div><h2>Kernel status</h2><b id="kernel-status">Loading…</b><small>Service API connection</small></div></article><article class="status-card accent-violet"><span class="card-icon">◈</span><div><h2>System mode</h2><b id="system-mode">Operating</b><small>Live fleet control</small></div></article>
+<article class="status-card accent-cyan"><span class="card-icon">▣</span><div><h2>Vehicles</h2><b id="vehicle-count">—</b><small>Registered units</small></div></article><article class="status-card accent-green"><span class="card-icon">↗</span><div><h2>Active vehicles</h2><b id="active-count">—</b><small>Currently in motion</small></div></article>
+<article class="status-card accent-orange"><span class="card-icon">≡</span><div><h2>Transport orders</h2><b id="order-count">—</b><small>Total workload</small></div></article><article class="status-card accent-red"><span class="card-icon">!</span><div><h2>Failed orders</h2><b id="failed-count">—</b><small>Needs attention</small></div></article></section>
+<section class="panel activity-panel"><div><span class="activity-icon">⌁</span><div><h2>System activity</h2><p id="status-message">Waiting for kernel status…</p></div></div><span class="live-label">LIVE</span></section>
 <script>window.pageKind='dashboard';</script><%@ include file="layout/footer.jsp" %>

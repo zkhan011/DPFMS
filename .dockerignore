@@ -1,0 +1,7 @@
+# SPDX-FileCopyrightText: Zishan Khan
+# SPDX-License-Identifier: MIT
+.git
+.gradle
+**/build
+**/.idea
+*.received.txt

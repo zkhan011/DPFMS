@@ -21,6 +21,31 @@ This additional frontend keeps the existing desktop Plant Overview, Model Editor
 
 Requires Java 21.
 
+### Docker Compose (recommended)
+
+Docker Engine with Compose v2 is the only prerequisite. From the repository root, run:
+
+```shell
+docker compose up --build
+```
+
+Open <http://localhost:8080> once the containers have started. The compose stack builds and runs
+both the headless openTCS kernel and the Tomcat-hosted web UI. The kernel API is also available on
+<http://localhost:55200/v1>. Stop the stack with `docker compose down`, or remove its persisted
+kernel data too with `docker compose down -v`.
+
+Runtime settings can be supplied before the command, for example:
+
+```shell
+MAP_ORIGIN_LATITUDE=50.0 MAP_ORIGIN_LONGITUDE=8.0 ROUTING_STRATEGY=ASTAR \
+  docker compose up --build
+```
+
+To follow startup logs, use `docker compose logs -f`. The first build downloads Gradle and Maven
+dependencies and will take longer than later cached builds.
+
+### Manual development build
+
 ```shell
 ./gradlew :opentcs-web-ui:war
 ```
