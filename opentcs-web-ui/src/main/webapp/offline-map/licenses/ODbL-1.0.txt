@@ -1,0 +1,2 @@
+Open Database License (ODbL) 1.0 notice
+The OpenStreetMap database is available under ODbL 1.0. See the project documentation for the canonical license location and attribution requirements.

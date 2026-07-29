@@ -1,0 +1,4 @@
+DPW FMS offline UAE reference map
+Map data © OpenStreetMap contributors, Open Database License (ODbL) 1.0.
+The compact vector reference dataset was prepared for this demonstration on 2026-07-29.
+It contains UAE-wide boundaries, emirate/city/port labels and major logistics corridors; it is not a navigation dataset.

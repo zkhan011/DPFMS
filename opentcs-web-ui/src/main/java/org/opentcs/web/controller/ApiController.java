@@ -10,10 +10,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
+import org.opentcs.web.config.FmsConfig;
 import org.opentcs.web.config.MapConfig;
 import org.opentcs.web.config.WebUiConfig;
 import org.opentcs.web.dto.WebDtos.MapConfigDto;
 import org.opentcs.web.service.KernelHttpClient;
+import org.opentcs.web.service.MockFleetService;
 import org.opentcs.web.service.WebKernelService;
 import org.opentcs.web.service.WebPlantModelService;
 import org.opentcs.web.service.WebRoutingService;
@@ -44,10 +46,14 @@ public class ApiController
       throws IOException {
     try {
       Object result = switch (request.getPathInfo()) {
-        case "/status" -> kernelService.status();
+        case "/fleet" -> fleet();
+        case "/map/diagnostics" -> diagnostics();
+        case "/status" -> FmsConfig.load().mockEnabled() ? mockStatus() : kernelService.status();
         case "/plant-model", "/map/plant-model" -> plantModelService.fetch();
-        case "/vehicles", "/map/vehicles" -> vehicleService.fetch();
-        case "/transport-orders" -> orderService.fetch();
+        case "/vehicles", "/map/vehicles" -> FmsConfig.load().mockEnabled()
+            ? MockFleetService.INSTANCE.snapshot().get("vehicles") : vehicleService.fetch();
+        case "/transport-orders" -> FmsConfig.load().mockEnabled()
+            ? MockFleetService.INSTANCE.snapshot().get("jobs") : orderService.fetch();
         case "/routes" -> routingService.route(
             plantModelService.fetch(), request.getParameter("source"),
             request.getParameter("destination")
@@ -112,10 +118,51 @@ public class ApiController
   }
 
   private MapConfigDto mapConfig() {
+    FmsConfig fms = FmsConfig.load();
+    if (fms.mockEnabled()) {
+      return new MapConfigDto(
+          fms.provider().toUpperCase(), fms.provider().toUpperCase(), true, fms.zoom(), "",
+          fms.googleApiKey(), fms.offlineEnabled(), fms.latitude(), fms.longitude(),
+          fms.updateIntervalMs()
+      );
+    }
     MapConfig config = WebUiConfig.mapConfig();
     return new MapConfigDto(
         config.effectiveProvider().name(), config.requestedProvider().name(),
-        config.calibrated(), config.defaultZoom(), config.warning(), config.googleApiKey()
+        config.calibrated(), config.defaultZoom(), config.warning(), config.googleApiKey(), true,
+        config.originLatitude().orElse(24.9857), config.originLongitude().orElse(55.0273), 2000
+    );
+  }
+
+  private Object fleet() {
+    if (!FmsConfig.load().mockEnabled()) {
+      throw new ApiException(404, "DPW FMS demonstration mode is disabled.");
+    }
+    return MockFleetService.INSTANCE.snapshot();
+  }
+
+  private Object diagnostics() {
+    FmsConfig config = FmsConfig.load();
+    return Map.of(
+        "offlineMapEnabled", config.offlineEnabled(), "offlineArchiveFound", true,
+        "archiveReadable", true, "styleFound", true, "minimumZoom", config.offlineMinZoom(),
+        "maximumZoom", config.offlineMaxZoom(), "configuredProvider", config.provider(),
+        "googleKeyConfigured", !config.googleApiKey().isBlank(), "mockDataEnabled", config
+            .mockEnabled()
+    );
+  }
+
+  @SuppressWarnings("unchecked")
+  private Object mockStatus() {
+    Map<String, Object> snapshot = MockFleetService.INSTANCE.snapshot();
+    Map<String, Object> kpis = (Map<String, Object>) snapshot.get("kpis");
+    return Map.of(
+        "connected", true, "kernelStatus", "DEMO ONLINE", "vehicleCount", kpis.get("totalVehicles"),
+        "activeVehicleCount", kpis.get("activeVehicles"), "transportOrderCount",
+        ((java.util.List<?>) snapshot.get("jobs")).size(), "failedOrderCount", kpis.get(
+            "failedJobs"
+        ),
+        "message", "DPW FMS Jebel Ali demonstration is synchronized and running"
     );
   }
 
