@@ -1,115 +1,83 @@
-<!-- SPDX-FileCopyrightText: Zishan Khan -->
+<!-- SPDX-FileCopyrightText: DPW FMS Contributors -->
 <!-- SPDX-License-Identifier: MIT -->
-# openTCS JSP Web UI
+# DPW FMS fleet operations demonstration
 
-Developer: Zishan Khan
+DPW FMS is a production-compatible JSP fleet console backed by the existing kernel integration. In production mode it keeps using the kernel service API. Optional demonstration mode supplies one deterministic Jebel Ali terminal state containing 20 vehicles, 32 jobs, 19 operational locations, five charging stations, four fuel stations, 18 alerts, routes and seven days of reporting history.
 
-This additional frontend keeps the existing desktop Plant Overview, Model Editor, Operations Desk and Kernel Control Center unchanged.
+## Run
 
-## Features
+Docker Engine with Compose v2 is the only runtime prerequisite:
 
-- Dashboard and safe Control Center status view
-- Plant Overview rendered as browser SVG
-- Vehicle monitoring and supported pause/resume/withdraw actions
-- Transport order monitoring and creation
-- AJAX live updates every two seconds
-- Route previews with `DEFAULT` (Dijkstra behavior) or optional `ASTAR`
-- OpenStreetMap/Leaflet map view and optional Google Maps view
-- Configurable conversion of local plant coordinates to latitude/longitude
-
-## Build and run
-
-Requires Java 21.
-
-### Docker Compose (recommended)
-
-Docker Engine with Compose v2 is the only prerequisite. From the repository root, run:
-
-```shell
-docker compose up --build
+```bash
+cp .env.example .env
+docker compose build
+docker compose up -d
+docker compose ps
+docker compose logs -f
 ```
 
-Open <http://localhost:8080> once the containers have started. The compose stack builds and runs
-both the headless openTCS kernel and the Tomcat-hosted web UI. The kernel API is also available on
-<http://localhost:55200/v1>. Stop the stack with `docker compose down`, or remove its persisted
-kernel data too with `docker compose down -v`.
+Open <http://localhost:8080>. The kernel API remains at <http://localhost:55200/v1>. Stop with `docker compose down`. The `kernel-data` volume contains kernel data; do not delete it in production. Mock state is deterministic in-memory demonstration state and is reset by restarting only `web` (`docker compose restart web`), without deleting any real or kernel records.
 
-Runtime settings can be supplied before the command, for example:
+A manual Java 21 build is available with `./gradlew :opentcs-web-ui:war`.
 
-```shell
-MAP_ORIGIN_LATITUDE=50.0 MAP_ORIGIN_LONGITUDE=8.0 ROUTING_STRATEGY=ASTAR \
-  docker compose up --build
+## Configuration
+
+| Variable | Default | Meaning |
+|---|---:|---|
+| `FMS_MOCK_DATA_ENABLED` | `true` in Compose | Enable the isolated demonstration repository and simulation |
+| `FMS_MOCK_UPDATE_INTERVAL_MS` | `3000` | Browser refresh interval (validated to 500–60000 ms) |
+| `FMS_MAP_PROVIDER` | `auto` | `auto`, `google`, or `offline` |
+| `FMS_OFFLINE_MAP_ENABLED` | `true` | Permit the local UAE fallback |
+| `GOOGLE_MAPS_API_KEY` | empty | Restricted browser key; never logged by DPW FMS |
+| `FMS_MAP_DEFAULT_LAT/LNG` | `24.9857/55.0273` | Jebel Ali centre |
+| `FMS_MAP_DEFAULT_ZOOM` | `14` | Initial terminal zoom |
+| `FMS_OFFLINE_STYLE_URL` | `/offline-map/style/style.json` | Same-origin local style |
+| `FMS_OFFLINE_MIN_ZOOM/MAX_ZOOM` | `5/15` | Advertised reference-map range |
+| `OPENTCS_WEB_KERNEL_API_BASE_URL` | `http://kernel:55200/v1` | Internal production kernel bridge |
+
+Invalid providers, coordinates, zooms, paths and intervals fall back to documented safe defaults. `GET /api/map/diagnostics` reports enablement, local asset health, zooms and whether a Google key is configured, but never returns the key.
+
+### Provider modes
+
+* **Automatic:** leave `FMS_MAP_PROVIDER=auto`. DPW FMS tries Google only when a key exists and switches to the local renderer on a missing key, script error, authentication callback, initialization error or eight-second timeout.
+* **Google preferred:** set `FMS_MAP_PROVIDER=google`, `FMS_OFFLINE_MAP_ENABLED=true`, and a restricted browser key. Enable the **Maps JavaScript API** in Google Cloud. Restrict the key to that API and HTTP referrers such as `https://fleet.example.com/*` (or `http://localhost:8080/*` for development). Google content is neither cached nor redistributed.
+* **Fully offline:** set `FMS_MAP_PROVIDER=offline`, `FMS_OFFLINE_MAP_ENABLED=true`, and leave `GOOGLE_MAPS_API_KEY=` empty; then run `docker compose down && docker compose up -d`. Forced offline mode never creates a Google script element or requests a public tile/CDN service.
+
+The provider switch preserves shared selected entity, filters and layer state; viewport preservation is supported by the Google adapter. A non-blocking indicator reports the active provider.
+
+## Mock architecture and simulation
+
+`MockFleetService` is the single typed backend state owner. Stable keys (`DPW-001`, `JOB-001`, etc.) and seed version `dpw-jebel-ali-v1` make initialization idempotent: the singleton seeds exactly once per web process, browser refreshes only read snapshots, and nothing is inserted into the kernel or a database. Disabling `FMS_MOCK_DATA_ENABLED` makes `/api/fleet` unavailable and leaves all original kernel-backed APIs unchanged.
+
+Moving vehicles interpolate deterministically along shared multi-segment route geometry. Each snapshot updates position, heading, route progress and timestamp. Charging, refuelling, maintenance, offline, idle and waiting vehicles remain stationary. The same `/api/fleet` snapshot drives KPIs, dashboard alerts, map overlays, search, tables and reports, preventing independently hard-coded UI values. Timers and provider resources are released on `pagehide`.
+
+Reports at `/reports` provide fleet utilization, SLA, duration, alert and job performance with vehicle/status/type filters and CSV export. In a production deployment, protect this servlet using the existing container identity proxy or Tomcat role policy; the demonstration image intentionally has no bundled credentials.
+
+## Offline UAE renderer and data
+
+The minimal renderer selected for this JSP application is an application-owned local SVG/GeoJSON adapter; the package format is GeoJSON rather than PMTiles, avoiding a tile server and byte-range/CORS complexity. It is served from the same WAR under `/offline-map/`. All JavaScript, styling, operational markers, route geometry, attribution and map data needed by this mode are local.
+
+The bundled compact OpenStreetMap-derived UAE **reference** extract (ODbL 1.0) covers the country outline, all seven emirate labels, Abu Dhabi, Dubai, Al Ain, Jebel Ali, Khalifa Port/KEZAD, Hamriyah and Fujairah ports, and key E11/E611/E44 corridors. It supports useful UAE context at zoom 5–15 and high-detail application overlays in the Jebel Ali demonstration extent. It deliberately does **not** claim street-level buildings, navigation, glyphs or turn-by-turn routing. The current archive is under 10 KiB, so image-size impact is negligible. Attribution is always visible.
+
+To update or replace it, generate a legally redistributable GeoJSON extract, replace `offline-map/data/uae.geojson`, update the attribution/date, and run:
+
+```bash
+(cd opentcs-web-ui/src/main/webapp/offline-map/data && sha256sum uae.geojson > uae.geojson.sha256)
+python3 scripts/validate-offline-map.py
 ```
 
-To follow startup logs, use `docker compose logs -f`. The first build downloads Gradle and Maven
-dependencies and will take longer than later cached builds.
+Docker verifies non-empty data/style/license files, checksum, and forbidden remote references and fails clearly when validation fails. OpenStreetMap public tiles are not used. License notices are packaged in `offline-map/licenses`.
 
-### Manual development build
+## Offline verification
 
-```shell
-./gradlew :opentcs-web-ui:war
-```
+Build once while dependencies are available, start the stack, then disconnect the host and restart the existing images with the forced-offline variables above. Refresh `http://localhost:8080`, exercise map markers, layers, local search, routes, reports and movement, and inspect the browser Network panel. All required runtime requests should target `localhost:8080`; the kernel-to-web bridge remains on the private Compose network.
 
-Start the openTCS kernel (its service web API defaults to port 55200), then deploy
-`opentcs-web-ui/build/libs/opentcs-web-ui-*.war` to a Jakarta Servlet 6/JSP container such as
-Tomcat 11. Configuration can be supplied as JVM system properties or equivalent upper-case
-environment variables documented below.
+## Troubleshooting
 
-## Kernel bridge
-
-```properties
-opentcs.web.kernelApiBaseUrl=http://localhost:55200/v1
-opentcs.web.accessKey=
-```
-
-The WAR calls the existing service web API for plant models, vehicles, transport orders, version
-status and supported commands. It does not expose kernel shutdown.
-
-## Routing configuration
-
-Kernel routing uses the existing openTCS shortest-path selector:
-
-```properties
-defaultrouter.shortestpath.algorithm = DIJKSTRA
-# or
-defaultrouter.shortestpath.algorithm = ASTAR
-```
-
-Browser route previews use:
-
-```properties
-routing.strategy=DEFAULT
-# or
-routing.strategy=ASTAR
-```
-
-## Map configuration
-
-OpenStreetMap (default, no API key):
-
-```properties
-map.provider=OSM
-google.maps.apiKey=
-map.origin.latitude=50.000000
-map.origin.longitude=8.000000
-map.scale.metersPerUnit=0.001
-map.rotation.degrees=0.0
-map.default.zoom=18
-```
-
-Google Maps (key supplied at runtime; never commit it):
-
-```properties
-map.provider=GOOGLE
-google.maps.apiKey=${GOOGLE_MAPS_API_KEY}
-map.origin.latitude=50.000000
-map.origin.longitude=8.000000
-map.scale.metersPerUnit=0.001
-map.rotation.degrees=0.0
-map.default.zoom=18
-```
-
-openTCS physical point/location coordinates are local millimetres. Choose the scale to match the
-model units (typically `0.001` metres per millimetre), then calibrate origin and rotation. If the
-origin is missing, the SVG view remains available and the map displays a safe configuration message.
-Google Maps without a key automatically falls back to OpenStreetMap. OSM attribution remains visible.
+* **Blank Google map:** verify Maps JavaScript API enablement, billing, referrer/API restrictions and browser console; automatic mode displays the offline map instead.
+* **Missing offline map/style:** run the validator, check the checksum, and confirm the assets exist inside `ROOT.war` under `offline-map/`.
+* **Missing labels/details:** the compact reference package intentionally has no sprite/glyph layer or street-level tile detail; operational labels and icons are application overlays.
+* **CORS/range errors:** the GeoJSON architecture is same-origin and does not require range requests. A reverse proxy must preserve `/offline-map/*` and `/api/*` paths.
+* **Incorrect bounds:** validate `FMS_MAP_DEFAULT_LAT/LNG`; demonstration overlays should remain near Jebel Ali.
+* **Docker volume problems:** inspect only `docker volume inspect dpfms_kernel-data`; do not remove unrelated volumes. Mock records are not stored in that volume.
+* **Disconnected production dashboard:** confirm the kernel is reachable at the configured internal URL and that access keys match.

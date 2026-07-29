@@ -4,7 +4,14 @@
 FROM eclipse-temurin:21-jdk AS builder
 WORKDIR /source
 COPY . .
-RUN ./gradlew --no-daemon :opentcs-kernel:installDist :opentcs-web-ui:war
+RUN test -s opentcs-web-ui/src/main/webapp/offline-map/data/uae.geojson \
+    && test -s opentcs-web-ui/src/main/webapp/offline-map/style/style.json \
+    && test -s opentcs-web-ui/src/main/webapp/offline-map/licenses/ATTRIBUTION.txt \
+    && cd opentcs-web-ui/src/main/webapp/offline-map/data \
+    && sha256sum -c uae.geojson.sha256 \
+    && cd /source \
+    && ! grep -ERi "maps.googleapis.com|tile.googleapis.com|fonts.googleapis.com|api.mapbox.com|tile.openstreetmap.org|carto.com|arcgis.com|bing.com|https?://" opentcs-web-ui/src/main/webapp/offline-map/data opentcs-web-ui/src/main/webapp/offline-map/style \
+    && ./gradlew --no-daemon :opentcs-kernel:installDist :opentcs-web-ui:war
 
 FROM eclipse-temurin:21-jre AS kernel
 WORKDIR /opt/opentcs

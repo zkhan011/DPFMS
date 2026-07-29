@@ -1,8 +1,6 @@
-<%-- Web frontend component for openTCS. Author: Zishan Khan. --%>
+<%-- SPDX-FileCopyrightText: DPW FMS Contributors; SPDX-License-Identifier: MIT --%>
 <%@ include file="layout/header.jsp" %>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3ynhOZbKfMZrG99DvybYH5Z3i5A0o=" crossorigin="">
-<div class="title-row"><h1>Map Overview</h1><a class="button" href="${pageContext.request.contextPath}/plant-overview">Switch to Plant SVG View</a></div>
-<section class="toolbar"><span>Provider: <b id="map-provider">Loading…</b></span><span>Calibration: <b id="calibration">Loading…</b></span><label>Source <select id="route-source"></select></label><label>Destination <select id="route-destination"></select></label><button id="calculate-route">Calculate Route</button></section>
-<p id="map-message" class="notice"></p><div id="map"></div><p id="route-result"></p>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<div class="title-row"><div><span class="eyebrow">Jebel Ali terminal</span><h1>Live Fleet Map</h1></div><span id="map-provider" class="pill">Selecting map…</span></div>
+<section class="toolbar"><label>Provider <select id="provider-switch"><option value="offline">Offline UAE</option><option value="google">Google Maps</option></select></label><label>Search <input id="map-search" placeholder="Vehicle, job, station or location"></label><button id="fit-assets">Fit all assets</button><button id="fit-route">Fit active route</button></section>
+<section class="map-layout"><aside class="map-layers"><h2>Layers</h2><label><input type="checkbox" data-layer="vehicles" checked> Vehicles</label><label><input type="checkbox" data-layer="chargingStations" checked> Charging</label><label><input type="checkbox" data-layer="fuelStations" checked> Fuel</label><label><input type="checkbox" data-layer="locations" checked> Locations</label><label><input type="checkbox" data-layer="alerts" checked> Alerts</label><label><input type="checkbox" data-layer="routes" checked> Routes</label><div id="map-results"></div></aside><div><p id="map-message" class="notice" hidden></p><div id="map" aria-label="DPW FMS fleet map"></div><small class="map-attribution">Offline map data © OpenStreetMap contributors, ODbL 1.0</small></div></section>
 <script defer src="${pageContext.request.contextPath}/static/js/map-overview.js"></script><%@ include file="layout/footer.jsp" %>

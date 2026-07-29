@@ -1,4 +1,4 @@
-<%-- Web frontend component for openTCS. Author: Zishan Khan. --%>
+<%-- Web frontend component for DPW FMS. Author: Zishan Khan. --%>
 <%@ include file="layout/header.jsp" %>
 <section class="hero"><div><span class="eyebrow">Live operations</span><h1>Your fleet at a glance</h1><p>Monitor vehicles, routes, and transport orders from one real-time workspace.</p></div><a class="button" href="${pageContext.request.contextPath}/plant-overview">Open plant view <span>→</span></a></section>
 <section class="cards">
@@ -6,4 +6,6 @@
 <article class="status-card accent-cyan"><span class="card-icon">▣</span><div><h2>Vehicles</h2><b id="vehicle-count">—</b><small>Registered units</small></div></article><article class="status-card accent-green"><span class="card-icon">↗</span><div><h2>Active vehicles</h2><b id="active-count">—</b><small>Currently in motion</small></div></article>
 <article class="status-card accent-orange"><span class="card-icon">≡</span><div><h2>Transport orders</h2><b id="order-count">—</b><small>Total workload</small></div></article><article class="status-card accent-red"><span class="card-icon">!</span><div><h2>Failed orders</h2><b id="failed-count">—</b><small>Needs attention</small></div></article></section>
 <section class="panel activity-panel"><div><span class="activity-icon">⌁</span><div><h2>System activity</h2><p id="status-message">Waiting for kernel status…</p></div></div><span class="live-label">LIVE</span></section>
-<script>window.pageKind='dashboard';</script><%@ include file="layout/footer.jsp" %>
+<section class="panel"><div class="title-row"><h2>Operational snapshot</h2><a class="button" href="${pageContext.request.contextPath}/map-overview">Open live map</a></div><div id="fleet-kpis" class="mini-kpis"><span>Loading DPW FMS data…</span></div></section>
+<section class="split"><section class="panel"><h2>Vehicles requiring attention</h2><div id="attention-vehicles"></div></section><section class="panel"><h2>Active alerts</h2><div id="dashboard-alerts"></div></section></section>
+<script>window.pageKind='dashboard';</script><script defer src="${pageContext.request.contextPath}/static/js/dashboard.js"></script><%@ include file="layout/footer.jsp" %>

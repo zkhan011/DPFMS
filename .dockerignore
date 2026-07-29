@@ -5,3 +5,6 @@
 **/build
 **/.idea
 *.received.txt
+
+.env
+!/.env.example
