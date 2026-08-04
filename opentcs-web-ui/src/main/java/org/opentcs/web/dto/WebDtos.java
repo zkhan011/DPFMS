@@ -34,7 +34,8 @@ public final class WebDtos {
 
   public record MapConfigDto(
       String provider, String requestedProvider, boolean calibrated, int zoom, String warning,
-      String googleApiKey
+      String googleApiKey, boolean offlineEnabled, double defaultLatitude,
+      double defaultLongitude, int updateIntervalMs, String tileEndpoint
   ) {}
 
   public record CoordinateDto(double latitude, double longitude) {}

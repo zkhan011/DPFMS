@@ -2,7 +2,8 @@
 <!-- SPDX-FileCopyrightText: Zishan Khan -->
 <!-- SPDX-License-Identifier: MIT -->
 <web-app xmlns="https://jakarta.ee/xml/ns/jakartaee" version="6.0">
-  <display-name>openTCS JSP Web UI — Zishan Khan</display-name>
+  <display-name>DPW FMS Fleet Management System</display-name>
+  <listener><listener-class>org.opentcs.web.service.KernelModelSynchronizer</listener-class></listener>
   <servlet><servlet-name>dashboard</servlet-name><servlet-class>org.opentcs.web.controller.DashboardController</servlet-class></servlet>
   <servlet><servlet-name>plant</servlet-name><servlet-class>org.opentcs.web.controller.PlantOverviewController</servlet-class></servlet>
   <servlet><servlet-name>map</servlet-name><servlet-class>org.opentcs.web.controller.MapController</servlet-class></servlet>
@@ -10,6 +11,8 @@
   <servlet><servlet-name>orders</servlet-name><servlet-class>org.opentcs.web.controller.TransportOrderController</servlet-class></servlet>
   <servlet><servlet-name>control</servlet-name><servlet-class>org.opentcs.web.controller.ControlCenterController</servlet-class></servlet>
   <servlet><servlet-name>api</servlet-name><servlet-class>org.opentcs.web.controller.ApiController</servlet-class></servlet>
+  <servlet><servlet-name>reports</servlet-name><servlet-class>org.opentcs.web.controller.ReportsController</servlet-class></servlet>
+  <servlet><servlet-name>map-tiles</servlet-name><servlet-class>org.opentcs.web.controller.MapTileController</servlet-class></servlet>
   <servlet-mapping><servlet-name>dashboard</servlet-name><url-pattern>/dashboard</url-pattern></servlet-mapping>
   <servlet-mapping><servlet-name>plant</servlet-name><url-pattern>/plant-overview</url-pattern></servlet-mapping>
   <servlet-mapping><servlet-name>map</servlet-name><url-pattern>/map-overview</url-pattern></servlet-mapping>
@@ -17,5 +20,8 @@
   <servlet-mapping><servlet-name>orders</servlet-name><url-pattern>/transport-orders</url-pattern></servlet-mapping>
   <servlet-mapping><servlet-name>control</servlet-name><url-pattern>/control-center</url-pattern></servlet-mapping>
   <servlet-mapping><servlet-name>api</servlet-name><url-pattern>/api/*</url-pattern></servlet-mapping>
+  <servlet-mapping><servlet-name>reports</servlet-name><url-pattern>/reports</url-pattern></servlet-mapping>
+  <servlet-mapping><servlet-name>map-tiles</servlet-name><url-pattern>/api/map/tiles/*</url-pattern></servlet-mapping>
+  <servlet-mapping><servlet-name>map-tiles</servlet-name><url-pattern>/api/map/metadata</url-pattern></servlet-mapping>
   <welcome-file-list><welcome-file>index.jsp</welcome-file></welcome-file-list>
 </web-app>

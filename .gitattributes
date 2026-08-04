@@ -27,3 +27,6 @@ gradlew text eol=lf
 *.jpg binary
 *.png binary
 *.tar.gz binary
+# Keep the offline database reviewable on platforms that reject binary patches.
+*.mbtiles.base64 text diff
+*.mbtiles binary

@@ -1,0 +1,7 @@
+<%-- SPDX-FileCopyrightText: DPW FMS Contributors; SPDX-License-Identifier: MIT --%>
+<%@ include file="layout/header.jsp" %>
+<div class="title-row"><div><span class="eyebrow">Operations intelligence</span><h1>Fleet Reports</h1></div><button id="export-report">Export CSV</button></div>
+<section class="toolbar"><label>Date range <select id="report-range"><option value="7">Last 7 days</option><option value="1">Last 24 hours</option></select></label><label>Vehicle <select id="report-vehicle"><option value="">All vehicles</option></select></label><label>Status <select id="report-status"><option value="">All statuses</option><option>Completed</option><option>Delayed</option><option>Failed</option></select></label><label>Job type <select id="report-job-type"><option value="">All job types</option></select></label></section>
+<section id="report-kpis" class="cards"></section><section class="panel"><h2>Seven-day operational history</h2><div id="report-chart" class="bar-chart" aria-label="Fleet utilization chart"></div></section>
+<section class="panel"><h2>Job performance</h2><div class="table-wrap"><table><thead><tr><th>Job</th><th>Type</th><th>Status</th><th>Vehicle</th><th>SLA</th><th>Progress</th></tr></thead><tbody id="report-rows"></tbody></table></div></section>
+<script defer src="${pageContext.request.contextPath}/static/js/reports.js"></script><%@ include file="layout/footer.jsp" %>

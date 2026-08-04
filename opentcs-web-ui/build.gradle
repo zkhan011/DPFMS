@@ -10,10 +10,10 @@ apply from: "${rootDir}/gradle/java-codequality.gradle"
 dependencies {
   implementation libs.jackson.databind
   implementation libs.jackson.datatype.jsr310
+  implementation libs.maplibre.gl
   compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
 }
 
 tasks.register('release') {
   dependsOn build
 }
-

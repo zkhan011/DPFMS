@@ -1,0 +1,2282 @@
+{
+  "name": "DPW-FMS-JEBEL-ALI-V1",
+  "points": [
+    {
+      "name": "R01-P01",
+      "position": {
+        "x": -938388,
+        "y": -857164,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9780000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0180000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -938388,
+          "y": -857164
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R01-P02",
+      "position": {
+        "x": -807215,
+        "y": -634524,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9800000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0193000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -807215,
+          "y": -634524
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R01-P03",
+      "position": {
+        "x": -676043,
+        "y": -411884,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9820000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0206000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -676043,
+          "y": -411884
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R01-P04",
+      "position": {
+        "x": -544870,
+        "y": -857164,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9780000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0219000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -544870,
+          "y": -857164
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R01-P05",
+      "position": {
+        "x": -413698,
+        "y": -634524,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9800000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0232000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -413698,
+          "y": -634524
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R01-P06",
+      "position": {
+        "x": -282525,
+        "y": -411884,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9820000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0245000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -282525,
+          "y": -411884
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R02-P01",
+      "position": {
+        "x": -736584,
+        "y": -801504,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9785000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0200000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -736584,
+          "y": -801504
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R02-P02",
+      "position": {
+        "x": -605412,
+        "y": -578864,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9805000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0213000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -605412,
+          "y": -578864
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R02-P03",
+      "position": {
+        "x": -474239,
+        "y": -356224,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9825000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0226000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -474239,
+          "y": -356224
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R02-P04",
+      "position": {
+        "x": -343067,
+        "y": -801504,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9785000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0239000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -343067,
+          "y": -801504
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R02-P05",
+      "position": {
+        "x": -211894,
+        "y": -578864,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9805000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0252000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -211894,
+          "y": -578864
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R02-P06",
+      "position": {
+        "x": -80722,
+        "y": -356224,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9825000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0265000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -80722,
+          "y": -356224
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R03-P01",
+      "position": {
+        "x": -534780,
+        "y": -745844,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9790000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0220000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -534780,
+          "y": -745844
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R03-P02",
+      "position": {
+        "x": -403608,
+        "y": -523204,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9810000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0233000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -403608,
+          "y": -523204
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R03-P03",
+      "position": {
+        "x": -272435,
+        "y": -300564,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9830000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0246000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -272435,
+          "y": -300564
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R03-P04",
+      "position": {
+        "x": -141263,
+        "y": -745844,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9790000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0259000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -141263,
+          "y": -745844
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R03-P05",
+      "position": {
+        "x": -10090,
+        "y": -523204,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9810000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0272000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -10090,
+          "y": -523204
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R03-P06",
+      "position": {
+        "x": 121082,
+        "y": -300564,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9830000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0285000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": 121082,
+          "y": -300564
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R04-P01",
+      "position": {
+        "x": -332976,
+        "y": -690184,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9795000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0240000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -332976,
+          "y": -690184
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R04-P02",
+      "position": {
+        "x": -201804,
+        "y": -467544,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9815000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0253000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -201804,
+          "y": -467544
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R04-P03",
+      "position": {
+        "x": -70631,
+        "y": -244904,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9835000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0266000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -70631,
+          "y": -244904
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R04-P04",
+      "position": {
+        "x": 60541,
+        "y": -690184,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9795000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0279000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": 60541,
+          "y": -690184
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R04-P05",
+      "position": {
+        "x": 191714,
+        "y": -467544,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9815000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0292000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": 191714,
+          "y": -467544
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R04-P06",
+      "position": {
+        "x": 322886,
+        "y": -244904,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9835000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0305000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": 322886,
+          "y": -244904
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R05-P01",
+      "position": {
+        "x": -131172,
+        "y": -634524,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9800000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0260000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": -131172,
+          "y": -634524
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R05-P02",
+      "position": {
+        "x": 0,
+        "y": -411884,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9820000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0273000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": 0,
+          "y": -411884
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R05-P03",
+      "position": {
+        "x": 131172,
+        "y": -189244,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9840000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0286000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": 131172,
+          "y": -189244
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R05-P04",
+      "position": {
+        "x": 262345,
+        "y": -634524,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9800000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0299000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": 262345,
+          "y": -634524
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R05-P05",
+      "position": {
+        "x": 393517,
+        "y": -411884,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9820000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0312000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": 393517,
+          "y": -411884
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R05-P06",
+      "position": {
+        "x": 524690,
+        "y": -189244,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9840000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0325000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": 524690,
+          "y": -189244
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R06-P01",
+      "position": {
+        "x": 70631,
+        "y": -578864,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9805000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0280000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": 70631,
+          "y": -578864
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R06-P02",
+      "position": {
+        "x": 201804,
+        "y": -356224,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9825000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0293000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": 201804,
+          "y": -356224
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R06-P03",
+      "position": {
+        "x": 332976,
+        "y": -133584,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9845000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0306000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": 332976,
+          "y": -133584
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R06-P04",
+      "position": {
+        "x": 464149,
+        "y": -578864,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9805000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0319000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": 464149,
+          "y": -578864
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R06-P05",
+      "position": {
+        "x": 595321,
+        "y": -356224,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9825000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0332000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": 595321,
+          "y": -356224
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    },
+    {
+      "name": "R06-P06",
+      "position": {
+        "x": 726494,
+        "y": -133584,
+        "z": 0
+      },
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9845000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0345000"
+        }
+      ],
+      "layout": {
+        "position": {
+          "x": 726494,
+          "y": -133584
+        },
+        "labelOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "layerId": 0
+      }
+    }
+  ],
+  "paths": [
+    {
+      "name": "R01-01-F",
+      "srcPointName": "R01-P01",
+      "destPointName": "R01-P02",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R01-01-R",
+      "srcPointName": "R01-P02",
+      "destPointName": "R01-P01",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R01-02-F",
+      "srcPointName": "R01-P02",
+      "destPointName": "R01-P03",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R01-02-R",
+      "srcPointName": "R01-P03",
+      "destPointName": "R01-P02",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R01-03-F",
+      "srcPointName": "R01-P03",
+      "destPointName": "R01-P04",
+      "length": 464199,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R01-03-R",
+      "srcPointName": "R01-P04",
+      "destPointName": "R01-P03",
+      "length": 464199,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R01-04-F",
+      "srcPointName": "R01-P04",
+      "destPointName": "R01-P05",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R01-04-R",
+      "srcPointName": "R01-P05",
+      "destPointName": "R01-P04",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R01-05-F",
+      "srcPointName": "R01-P05",
+      "destPointName": "R01-P06",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R01-05-R",
+      "srcPointName": "R01-P06",
+      "destPointName": "R01-P05",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "CONNECT-01-F",
+      "srcPointName": "R01-P06",
+      "destPointName": "R02-P01",
+      "length": 598309,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "CONNECT-01-R",
+      "srcPointName": "R02-P01",
+      "destPointName": "R01-P06",
+      "length": 598309,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R02-01-F",
+      "srcPointName": "R02-P01",
+      "destPointName": "R02-P02",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R02-01-R",
+      "srcPointName": "R02-P02",
+      "destPointName": "R02-P01",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R02-02-F",
+      "srcPointName": "R02-P02",
+      "destPointName": "R02-P03",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R02-02-R",
+      "srcPointName": "R02-P03",
+      "destPointName": "R02-P02",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R02-03-F",
+      "srcPointName": "R02-P03",
+      "destPointName": "R02-P04",
+      "length": 464199,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R02-03-R",
+      "srcPointName": "R02-P04",
+      "destPointName": "R02-P03",
+      "length": 464199,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R02-04-F",
+      "srcPointName": "R02-P04",
+      "destPointName": "R02-P05",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R02-04-R",
+      "srcPointName": "R02-P05",
+      "destPointName": "R02-P04",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R02-05-F",
+      "srcPointName": "R02-P05",
+      "destPointName": "R02-P06",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R02-05-R",
+      "srcPointName": "R02-P06",
+      "destPointName": "R02-P05",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "CONNECT-02-F",
+      "srcPointName": "R02-P06",
+      "destPointName": "R03-P01",
+      "length": 598308,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "CONNECT-02-R",
+      "srcPointName": "R03-P01",
+      "destPointName": "R02-P06",
+      "length": 598308,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R03-01-F",
+      "srcPointName": "R03-P01",
+      "destPointName": "R03-P02",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R03-01-R",
+      "srcPointName": "R03-P02",
+      "destPointName": "R03-P01",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R03-02-F",
+      "srcPointName": "R03-P02",
+      "destPointName": "R03-P03",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R03-02-R",
+      "srcPointName": "R03-P03",
+      "destPointName": "R03-P02",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R03-03-F",
+      "srcPointName": "R03-P03",
+      "destPointName": "R03-P04",
+      "length": 464199,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R03-03-R",
+      "srcPointName": "R03-P04",
+      "destPointName": "R03-P03",
+      "length": 464199,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R03-04-F",
+      "srcPointName": "R03-P04",
+      "destPointName": "R03-P05",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R03-04-R",
+      "srcPointName": "R03-P05",
+      "destPointName": "R03-P04",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R03-05-F",
+      "srcPointName": "R03-P05",
+      "destPointName": "R03-P06",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R03-05-R",
+      "srcPointName": "R03-P06",
+      "destPointName": "R03-P05",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "CONNECT-03-F",
+      "srcPointName": "R03-P06",
+      "destPointName": "R04-P01",
+      "length": 598308,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "CONNECT-03-R",
+      "srcPointName": "R04-P01",
+      "destPointName": "R03-P06",
+      "length": 598308,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R04-01-F",
+      "srcPointName": "R04-P01",
+      "destPointName": "R04-P02",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R04-01-R",
+      "srcPointName": "R04-P02",
+      "destPointName": "R04-P01",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R04-02-F",
+      "srcPointName": "R04-P02",
+      "destPointName": "R04-P03",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R04-02-R",
+      "srcPointName": "R04-P03",
+      "destPointName": "R04-P02",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R04-03-F",
+      "srcPointName": "R04-P03",
+      "destPointName": "R04-P04",
+      "length": 464199,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R04-03-R",
+      "srcPointName": "R04-P04",
+      "destPointName": "R04-P03",
+      "length": 464199,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R04-04-F",
+      "srcPointName": "R04-P04",
+      "destPointName": "R04-P05",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R04-04-R",
+      "srcPointName": "R04-P05",
+      "destPointName": "R04-P04",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R04-05-F",
+      "srcPointName": "R04-P05",
+      "destPointName": "R04-P06",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R04-05-R",
+      "srcPointName": "R04-P06",
+      "destPointName": "R04-P05",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "CONNECT-04-F",
+      "srcPointName": "R04-P06",
+      "destPointName": "R05-P01",
+      "length": 598308,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "CONNECT-04-R",
+      "srcPointName": "R05-P01",
+      "destPointName": "R04-P06",
+      "length": 598308,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R05-01-F",
+      "srcPointName": "R05-P01",
+      "destPointName": "R05-P02",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R05-01-R",
+      "srcPointName": "R05-P02",
+      "destPointName": "R05-P01",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R05-02-F",
+      "srcPointName": "R05-P02",
+      "destPointName": "R05-P03",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R05-02-R",
+      "srcPointName": "R05-P03",
+      "destPointName": "R05-P02",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R05-03-F",
+      "srcPointName": "R05-P03",
+      "destPointName": "R05-P04",
+      "length": 464199,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R05-03-R",
+      "srcPointName": "R05-P04",
+      "destPointName": "R05-P03",
+      "length": 464199,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R05-04-F",
+      "srcPointName": "R05-P04",
+      "destPointName": "R05-P05",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R05-04-R",
+      "srcPointName": "R05-P05",
+      "destPointName": "R05-P04",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R05-05-F",
+      "srcPointName": "R05-P05",
+      "destPointName": "R05-P06",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R05-05-R",
+      "srcPointName": "R05-P06",
+      "destPointName": "R05-P05",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "CONNECT-05-F",
+      "srcPointName": "R05-P06",
+      "destPointName": "R06-P01",
+      "length": 598309,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "CONNECT-05-R",
+      "srcPointName": "R06-P01",
+      "destPointName": "R05-P06",
+      "length": 598309,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R06-01-F",
+      "srcPointName": "R06-P01",
+      "destPointName": "R06-P02",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R06-01-R",
+      "srcPointName": "R06-P02",
+      "destPointName": "R06-P01",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R06-02-F",
+      "srcPointName": "R06-P02",
+      "destPointName": "R06-P03",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R06-02-R",
+      "srcPointName": "R06-P03",
+      "destPointName": "R06-P02",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R06-03-F",
+      "srcPointName": "R06-P03",
+      "destPointName": "R06-P04",
+      "length": 464199,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R06-03-R",
+      "srcPointName": "R06-P04",
+      "destPointName": "R06-P03",
+      "length": 464199,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R06-04-F",
+      "srcPointName": "R06-P04",
+      "destPointName": "R06-P05",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R06-04-R",
+      "srcPointName": "R06-P05",
+      "destPointName": "R06-P04",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R06-05-F",
+      "srcPointName": "R06-P05",
+      "destPointName": "R06-P06",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    },
+    {
+      "name": "R06-05-R",
+      "srcPointName": "R06-P06",
+      "destPointName": "R06-P05",
+      "length": 258408,
+      "maxVelocity": 6000,
+      "maxReverseVelocity": 3000,
+      "locked": false
+    }
+  ],
+  "locationTypes": [
+    {
+      "name": "DPW_OPERATION",
+      "allowedOperations": [
+        "MOVE"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Entry gate A",
+      "typeName": "DPW_OPERATION",
+      "position": {
+        "x": -938388,
+        "y": -857164,
+        "z": 0
+      },
+      "links": [
+        {
+          "pointName": "R01-P01",
+          "allowedOperations": [
+            "MOVE"
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9780000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0180000"
+        }
+      ]
+    },
+    {
+      "name": "Exit gate B",
+      "typeName": "DPW_OPERATION",
+      "position": {
+        "x": -807215,
+        "y": -634524,
+        "z": 0
+      },
+      "links": [
+        {
+          "pointName": "R01-P02",
+          "allowedOperations": [
+            "MOVE"
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9800000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0193000"
+        }
+      ]
+    },
+    {
+      "name": "Security checkpoint C",
+      "typeName": "DPW_OPERATION",
+      "position": {
+        "x": -676043,
+        "y": -411884,
+        "z": 0
+      },
+      "links": [
+        {
+          "pointName": "R01-P03",
+          "allowedOperations": [
+            "MOVE"
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9820000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0206000"
+        }
+      ]
+    },
+    {
+      "name": "Weighbridge D",
+      "typeName": "DPW_OPERATION",
+      "position": {
+        "x": -544870,
+        "y": -857164,
+        "z": 0
+      },
+      "links": [
+        {
+          "pointName": "R01-P04",
+          "allowedOperations": [
+            "MOVE"
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9780000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0219000"
+        }
+      ]
+    },
+    {
+      "name": "Container yard block E",
+      "typeName": "DPW_OPERATION",
+      "position": {
+        "x": -413698,
+        "y": -634524,
+        "z": 0
+      },
+      "links": [
+        {
+          "pointName": "R01-P05",
+          "allowedOperations": [
+            "MOVE"
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9800000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0232000"
+        }
+      ]
+    },
+    {
+      "name": "Loading zone F",
+      "typeName": "DPW_OPERATION",
+      "position": {
+        "x": -282525,
+        "y": -411884,
+        "z": 0
+      },
+      "links": [
+        {
+          "pointName": "R01-P06",
+          "allowedOperations": [
+            "MOVE"
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9820000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0245000"
+        }
+      ]
+    },
+    {
+      "name": "Unloading zone G",
+      "typeName": "DPW_OPERATION",
+      "position": {
+        "x": -736584,
+        "y": -801504,
+        "z": 0
+      },
+      "links": [
+        {
+          "pointName": "R02-P01",
+          "allowedOperations": [
+            "MOVE"
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9785000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0200000"
+        }
+      ]
+    },
+    {
+      "name": "Empty-container yard H",
+      "typeName": "DPW_OPERATION",
+      "position": {
+        "x": -605412,
+        "y": -578864,
+        "z": 0
+      },
+      "links": [
+        {
+          "pointName": "R02-P02",
+          "allowedOperations": [
+            "MOVE"
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9805000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0213000"
+        }
+      ]
+    },
+    {
+      "name": "Loaded-container yard I",
+      "typeName": "DPW_OPERATION",
+      "position": {
+        "x": -474239,
+        "y": -356224,
+        "z": 0
+      },
+      "links": [
+        {
+          "pointName": "R02-P03",
+          "allowedOperations": [
+            "MOVE"
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9825000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0226000"
+        }
+      ]
+    },
+    {
+      "name": "Warehouse J",
+      "typeName": "DPW_OPERATION",
+      "position": {
+        "x": -343067,
+        "y": -801504,
+        "z": 0
+      },
+      "links": [
+        {
+          "pointName": "R02-P04",
+          "allowedOperations": [
+            "MOVE"
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9785000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0239000"
+        }
+      ]
+    },
+    {
+      "name": "Workshop K",
+      "typeName": "DPW_OPERATION",
+      "position": {
+        "x": -211894,
+        "y": -578864,
+        "z": 0
+      },
+      "links": [
+        {
+          "pointName": "R02-P05",
+          "allowedOperations": [
+            "MOVE"
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9805000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0252000"
+        }
+      ]
+    },
+    {
+      "name": "Maintenance bay L",
+      "typeName": "DPW_OPERATION",
+      "position": {
+        "x": -80722,
+        "y": -356224,
+        "z": 0
+      },
+      "links": [
+        {
+          "pointName": "R02-P06",
+          "allowedOperations": [
+            "MOVE"
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9825000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0265000"
+        }
+      ]
+    },
+    {
+      "name": "Parking area M",
+      "typeName": "DPW_OPERATION",
+      "position": {
+        "x": -534780,
+        "y": -745844,
+        "z": 0
+      },
+      "links": [
+        {
+          "pointName": "R03-P01",
+          "allowedOperations": [
+            "MOVE"
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9790000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0220000"
+        }
+      ]
+    },
+    {
+      "name": "Holding area N",
+      "typeName": "DPW_OPERATION",
+      "position": {
+        "x": -403608,
+        "y": -523204,
+        "z": 0
+      },
+      "links": [
+        {
+          "pointName": "R03-P02",
+          "allowedOperations": [
+            "MOVE"
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9810000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0233000"
+        }
+      ]
+    },
+    {
+      "name": "Charging area O",
+      "typeName": "DPW_OPERATION",
+      "position": {
+        "x": -272435,
+        "y": -300564,
+        "z": 0
+      },
+      "links": [
+        {
+          "pointName": "R03-P03",
+          "allowedOperations": [
+            "MOVE"
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9830000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0246000"
+        }
+      ]
+    },
+    {
+      "name": "Fuel area P",
+      "typeName": "DPW_OPERATION",
+      "position": {
+        "x": -141263,
+        "y": -745844,
+        "z": 0
+      },
+      "links": [
+        {
+          "pointName": "R03-P04",
+          "allowedOperations": [
+            "MOVE"
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9790000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0259000"
+        }
+      ]
+    },
+    {
+      "name": "Administration building Q",
+      "typeName": "DPW_OPERATION",
+      "position": {
+        "x": -10090,
+        "y": -523204,
+        "z": 0
+      },
+      "links": [
+        {
+          "pointName": "R03-P05",
+          "allowedOperations": [
+            "MOVE"
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9810000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0272000"
+        }
+      ]
+    },
+    {
+      "name": "Inspection zone R",
+      "typeName": "DPW_OPERATION",
+      "position": {
+        "x": 121082,
+        "y": -300564,
+        "z": 0
+      },
+      "links": [
+        {
+          "pointName": "R03-P06",
+          "allowedOperations": [
+            "MOVE"
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9830000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0285000"
+        }
+      ]
+    },
+    {
+      "name": "Emergency assembly point S",
+      "typeName": "DPW_OPERATION",
+      "position": {
+        "x": -332976,
+        "y": -690184,
+        "z": 0
+      },
+      "links": [
+        {
+          "pointName": "R04-P01",
+          "allowedOperations": [
+            "MOVE"
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "latitude",
+          "value": "24.9795000"
+        },
+        {
+          "name": "longitude",
+          "value": "55.0240000"
+        }
+      ]
+    }
+  ],
+  "blocks": [],
+  "vehicles": [
+    {
+      "name": "DPW-001"
+    },
+    {
+      "name": "DPW-002"
+    },
+    {
+      "name": "DPW-003"
+    },
+    {
+      "name": "DPW-004"
+    },
+    {
+      "name": "DPW-005"
+    },
+    {
+      "name": "DPW-006"
+    },
+    {
+      "name": "DPW-007"
+    },
+    {
+      "name": "DPW-008"
+    },
+    {
+      "name": "DPW-009"
+    },
+    {
+      "name": "DPW-010"
+    },
+    {
+      "name": "DPW-011"
+    },
+    {
+      "name": "DPW-012"
+    },
+    {
+      "name": "DPW-013"
+    },
+    {
+      "name": "DPW-014"
+    },
+    {
+      "name": "DPW-015"
+    },
+    {
+      "name": "DPW-016"
+    },
+    {
+      "name": "DPW-017"
+    },
+    {
+      "name": "DPW-018"
+    },
+    {
+      "name": "DPW-019"
+    },
+    {
+      "name": "DPW-020"
+    }
+  ],
+  "visualLayout": {
+    "name": "DPW FMS Jebel Ali",
+    "scaleX": 50,
+    "scaleY": 50
+  },
+  "properties": [
+    {
+      "name": "dpw.fms.seedVersion",
+      "value": "1"
+    },
+    {
+      "name": "map.bounds",
+      "value": "55.012,24.970,55.044,25.000"
+    }
+  ]
+}

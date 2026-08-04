@@ -81,7 +81,8 @@ public class WebPlantModelService {
 
   private Double property(JsonNode node, String key) {
     for (JsonNode property : node.path("properties")) {
-      if (key.equalsIgnoreCase(property.path("key").asText())) {
+      String propertyName = property.path("name").asText(property.path("key").asText());
+      if (key.equalsIgnoreCase(propertyName)) {
         try {
           return Double.valueOf(property.path("value").asText());
         }

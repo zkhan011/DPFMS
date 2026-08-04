@@ -1,4 +1,4 @@
-<%-- Web frontend component for openTCS. Author: Zishan Khan. --%>
+<%-- Web frontend component for DPW FMS. Author: Zishan Khan. --%>
 <%@ include file="layout/header.jsp" %>
 <div class="title-row"><h1>Plant Overview</h1><a class="button" href="${pageContext.request.contextPath}/map-overview">Switch to Map View</a></div>
 <section class="toolbar"><label>Source <select id="route-source"></select></label><label>Destination <select id="route-destination"></select></label><button id="calculate-route">Calculate Route</button><span id="route-result"></span></section>

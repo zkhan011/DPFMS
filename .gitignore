@@ -12,3 +12,7 @@
 # Ignore approval test result files.
 **/.approval_tests_temp/
 *Test*.received.txt
+
+# Temporary regional OSM source used only to regenerate cropped MBTiles.
+/deployment/maps/source/
+/deployment/maps/*.mbtiles
