@@ -21,7 +21,7 @@ class OfflineUaeMapProvider extends FleetMapProvider {
     if(typeof maplibregl==='undefined')throw new Error('The bundled MapLibre renderer is unavailable.');
     const response=await fetch(ctx+'/api/map/metadata');if(!response.ok)throw new Error('Offline MBTiles metadata is unavailable.');this.metadata=await response.json();
     const [west,south,east,north]=this.metadata.bounds.split(',').map(Number),[lng,lat,zoom]=this.metadata.center.split(',').map(Number);bounds={minLng:west,minLat:south,maxLng:east,maxLat:north};
-    const tileUrl=ctx+config.tileEndpoint.replace('{z}','{z}').replace('{x}','{x}').replace('{y}','{y}');
+    const tileUrl=FmsMapUrls.absoluteTileTemplate(window.location.origin,ctx,config.tileEndpoint);
     this.map=new maplibregl.Map({container:'map',center:[lng,lat],zoom,attributionControl:false,style:{version:8,sources:{offline:{type:'vector',tiles:[tileUrl],minzoom:Number(this.metadata.minzoom),maxzoom:Number(this.metadata.maxzoom),bounds:[west,south,east,north],attribution:this.metadata.attribution}},layers:[
       {id:'background',type:'background',paint:{'background-color':'#0b1a2b'}},
       {id:'landuse',type:'fill',source:'offline','source-layer':'landuse',paint:{'fill-color':'#233b45','fill-opacity':.75}},
