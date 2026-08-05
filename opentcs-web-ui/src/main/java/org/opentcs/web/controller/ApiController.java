@@ -94,7 +94,10 @@ public class ApiController
               request.getInputStream()
           );
       Object result;
-      if (path.equals("/map/load-to-kernel")) {
+      if (path.equals("/kernel-proxy")) {
+        result = kernelProxy(body);
+      }
+      else if (path.equals("/map/load-to-kernel")) {
         result = loadMapToKernel();
       }
       else if (path.equals("/telematics")) {
@@ -260,6 +263,21 @@ public class ApiController
     );
   }
 
+
+  private Object kernelProxy(JsonNode body)
+      throws IOException,
+        InterruptedException {
+    String method = text(body, "method").toUpperCase(java.util.Locale.ROOT);
+    String path = text(body, "path");
+    String payload = text(body, "body");
+    if (!java.util.Set.of("GET", "POST", "PUT", "DELETE").contains(method)) {
+      throw new ApiException(400, "Unsupported kernel method: " + method);
+    }
+    if (!path.startsWith("/") || path.contains("://") || path.contains("..")) {
+      throw new ApiException(400, "Kernel path must be an absolute service API path.");
+    }
+    return method.equals("GET") ? client.get(path) : client.sendJson(method, path, payload);
+  }
 
   private Object loadMapToKernel()
       throws IOException,

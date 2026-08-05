@@ -13,6 +13,7 @@
   <servlet><servlet-name>api</servlet-name><servlet-class>org.opentcs.web.controller.ApiController</servlet-class></servlet>
   <servlet><servlet-name>reports</servlet-name><servlet-class>org.opentcs.web.controller.ReportsController</servlet-class></servlet>
   <servlet><servlet-name>config</servlet-name><servlet-class>org.opentcs.web.controller.ConfigController</servlet-class></servlet>
+  <servlet><servlet-name>kernel-api</servlet-name><servlet-class>org.opentcs.web.controller.KernelApiController</servlet-class></servlet>
   <servlet><servlet-name>map-tiles</servlet-name><servlet-class>org.opentcs.web.controller.MapTileController</servlet-class></servlet>
   <servlet-mapping><servlet-name>dashboard</servlet-name><url-pattern>/dashboard</url-pattern></servlet-mapping>
   <servlet-mapping><servlet-name>plant</servlet-name><url-pattern>/plant-overview</url-pattern></servlet-mapping>
@@ -23,6 +24,7 @@
   <servlet-mapping><servlet-name>api</servlet-name><url-pattern>/api/*</url-pattern></servlet-mapping>
   <servlet-mapping><servlet-name>reports</servlet-name><url-pattern>/reports</url-pattern></servlet-mapping>
   <servlet-mapping><servlet-name>config</servlet-name><url-pattern>/config</url-pattern></servlet-mapping>
+  <servlet-mapping><servlet-name>kernel-api</servlet-name><url-pattern>/kernel-api</url-pattern></servlet-mapping>
   <servlet-mapping><servlet-name>map-tiles</servlet-name><url-pattern>/api/map/tiles/*</url-pattern></servlet-mapping>
   <servlet-mapping><servlet-name>map-tiles</servlet-name><url-pattern>/api/map/metadata</url-pattern></servlet-mapping>
   <welcome-file-list><welcome-file>index.jsp</welcome-file></welcome-file-list>
