@@ -1,0 +1,5 @@
+/* SPDX-FileCopyrightText: DPW FMS Contributors; SPDX-License-Identifier: MIT */
+'use strict';
+async function refreshControl(){try{const [status,diagnostics]=await Promise.all([api('/status'),api('/map/diagnostics')]);document.getElementById('kernel-status').textContent=status.kernelStatus;document.getElementById('kernel-connection').textContent=status.connected?'Connected':'Disconnected';document.getElementById('status-message').textContent=status.message;document.getElementById('control-diagnostics').innerHTML=Object.entries(diagnostics).map(([key,value])=>`<span><b>${String(value)}</b><small>${key}</small></span>`).join('')}catch(error){showMessage(error.message)}}
+document.getElementById('load-kernel-map')?.addEventListener('click',async()=>{try{const result=await api('/map/load-to-kernel',{method:'POST',body:'{}'});showMessage(`Loaded ${result.modelName}: ${result.points} points, ${result.paths} paths`);refreshControl()}catch(error){showMessage(error.message)}});
+document.getElementById('refresh-control')?.addEventListener('click',refreshControl);refreshControl();
