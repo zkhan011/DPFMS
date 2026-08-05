@@ -9,6 +9,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -87,9 +89,15 @@ public class ApiController
       throws IOException {
     try {
       String path = request.getPathInfo();
-      JsonNode body = mapper.readTree(request.getInputStream());
+      JsonNode body = request.getContentLengthLong() == 0 ? mapper.createObjectNode() : mapper
+          .readTree(
+              request.getInputStream()
+          );
       Object result;
-      if (path.equals("/telematics")) {
+      if (path.equals("/map/load-to-kernel")) {
+        result = loadMapToKernel();
+      }
+      else if (path.equals("/telematics")) {
         result = TelematicsService.INSTANCE.upsert(body);
       }
       else if (path.equals("/transport-orders")) {
@@ -249,6 +257,30 @@ public class ApiController
         "found", true, "strategy", "TERMINAL_NETWORK", "totalCost", 1,
         "points", List.of(source, destination), "paths", List.of(route.get("id")),
         "geometry", route.get("geometry"), "message", ""
+    );
+  }
+
+
+  private Object loadMapToKernel()
+      throws IOException,
+        InterruptedException {
+    String model;
+    try (InputStream stream = getClass().getResourceAsStream(
+        "/kernel-model/dpw-fms-plant-model.json"
+    )) {
+      if (stream == null) {
+        throw new ApiException(500, "Bundled DPW FMS kernel model is missing.");
+      }
+      model = new String(stream.readAllBytes(), StandardCharsets.UTF_8);
+    }
+    client.sendJson("PUT", "/plantModel", model);
+    client.sendJson("POST", "/plantModel/topologyUpdateRequest", "{\"paths\":[]}");
+    JsonNode installed = client.get("/plantModel");
+    return Map.of(
+        "loaded", true, "modelName", installed.path("name").asText("DPW-FMS-JEBEL-ALI-V1"),
+        "points", installed.path("points").size(), "paths", installed.path("paths").size(),
+        "locations", installed.path("locations").size(), "vehicles", installed.path("vehicles")
+            .size()
     );
   }
 

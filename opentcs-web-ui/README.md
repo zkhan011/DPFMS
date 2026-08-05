@@ -147,3 +147,54 @@ The map page polls `GET /api/telematics` and displays the latest message per veh
 6. Open the map-first UI: <http://localhost:8080/map-overview>.
 7. If the basemap is blank, check <http://localhost:8080/api/map/metadata>, `docker compose logs tiles`, and browser Network entries for `/api/map/tiles/{z}/{x}/{y}.pbf`. The UI also loads the bundled same-origin GeoJSON reference layer so fleet markers and terminal context remain visible even when a vector tile is missing or delayed.
 8. Post the sample telematics `curl` above and verify the vehicle appears in the Live telematics panel.
+
+## Map download, upload, update and kernel loading
+
+DPW FMS separates the visual basemap from the kernel routing topology:
+
+* The offline visual map is `deployment/maps/jebel-ali.mbtiles` and is served by `/api/map/tiles/{z}/{x}/{y}.pbf`.
+* The kernel routing/dispatching map is `opentcs-web-ui/src/main/resources/kernel-model/dpw-fms-plant-model.json` and is loaded into the kernel plant-model API.
+
+### Download/update OSM map data
+
+Run the pinned tilemaker pipeline in an internet-enabled environment:
+
+```bash
+FMS_MAP_BBOX=55.012,24.970,55.044,25.000 \
+FMS_OSM_SOURCE_URL=https://download.geofabrik.de/asia/gcc-states-latest.osm.pbf \
+./scripts/download-offline-map.sh
+```
+
+This downloads the source extract temporarily, clips output to `FMS_MAP_BBOX`, validates the result, updates the checksum and refreshes the Base64 artifact used by Docker.
+
+### Upload/replace an MBTiles package
+
+Use this when GIS or operations provides a reviewed cropped vector MBTiles package:
+
+```bash
+FMS_MAP_BBOX=55.012,24.970,55.044,25.000 \
+./scripts/upload-offline-map.sh /path/to/reviewed-jebel-ali.mbtiles
+```
+
+The upload script refuses empty/corrupt/wrong-bounds packages, then updates `jebel-ali.mbtiles`, `jebel-ali.mbtiles.sha256` and `jebel-ali.mbtiles.base64` for repeatable Docker builds.
+
+### Load the map topology to the kernel
+
+For dispatching/routing, load the DPW FMS plant model into the running kernel:
+
+```bash
+OPENTCS_WEB_KERNEL_API_BASE_URL=http://localhost:55200/v1 \
+./scripts/load-kernel-map.sh
+```
+
+From the web API, the same operation is available for controlled deployments:
+
+```bash
+curl -X POST http://localhost:8080/api/map/load-to-kernel
+```
+
+This imports the bundled DPW FMS plant model, requests a topology update and returns the installed point/path/location/vehicle counts. The MBTiles basemap is not used for dispatch calculations; it is the visual road map under the same coordinates as the kernel model.
+
+### Road and satellite views
+
+The map toolbar has a **View** selector. **Road** uses the local offline MBTiles/GeoJSON basemap. **Satellite** is available only when Google Maps is the active provider with a valid key; forced-offline mode never downloads or caches satellite imagery.
