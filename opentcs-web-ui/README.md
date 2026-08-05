@@ -78,7 +78,7 @@ Build once while dependencies are available, start the stack, then disconnect th
 * **Missing offline map/style:** run the validator, check the checksum, and confirm the assets exist inside `ROOT.war` under `offline-map/`.
 * **Missing labels/details:** the compact reference package intentionally has no sprite/glyph layer or street-level tile detail; operational labels and icons are application overlays.
 * **CORS/tile errors:** preserve `/api/map/tiles/*` and `/api/map/metadata` through the reverse proxy, check the internal `tiles` service health and confirm that `Content-Encoding: gzip` is preserved.
-* **`Request constructor ... is not a valid URL`:** use the current build, which resolves the application-relative tile template to an absolute same-origin URL before handing it to the MapLibre worker. Reverse proxies must forward the original HTTP(S) host/protocol and application context path.
+* **`Request constructor ... is not a valid URL`:** use the current build, hard-refresh the browser to pick up `map-overview.js?v=2`, and confirm `/api/map/config` returns `/api/map/tiles/{z}/{x}/{y}.pbf`. The UI now resolves the endpoint to an absolute same-origin URL in the page and also normalizes worker resource requests through MapLibre `transformRequest`. Reverse proxies must forward the original HTTP(S) host/protocol and application context path.
 * **Incorrect bounds:** validate `FMS_MAP_DEFAULT_LAT/LNG`; demonstration overlays should remain near Jebel Ali.
 * **Docker volume problems:** inspect only `docker volume inspect dpfms_kernel-data`; do not remove unrelated volumes. Mock records are not stored in that volume.
 * **Disconnected production dashboard:** confirm the kernel is reachable at the configured internal URL and that access keys match.

@@ -5,6 +5,13 @@ const TERMINAL_BOUNDS={minLat:24.970,maxLat:25.000,minLng:55.012,maxLng:55.044};
 let bounds={...TERMINAL_BOUNDS},fleet,config,provider,selectedId=null,selectedRoute=null,timer;
 const layers={vehicles:true,chargingStations:true,fuelStations:true,locations:true,alerts:true,routes:true};
 const coordinates=(lat,lng)=>({x:(lng-bounds.minLng)/(bounds.maxLng-bounds.minLng)*100,y:(bounds.maxLat-lat)/(bounds.maxLat-bounds.minLat)*100});
+const absoluteTileTemplate=endpoint=>{
+  if(window.FmsMapUrls)return FmsMapUrls.absoluteTileTemplate(window.location.origin,ctx,endpoint);
+  const path=String(endpoint||'').replace(/^\/+/, '');
+  if(!path.includes('{z}')||!path.includes('{x}')||!path.includes('{y}')||path.includes('://'))throw new Error('A local XYZ tile endpoint is required.');
+  return new URL(`${ctx.replace(/\/$/, '')}/${path}`,window.location.origin).href;
+};
+const sameOriginResource=url=>({url:url.startsWith('/')?new URL(url,window.location.origin).href:url});
 const svgElement=name=>document.createElementNS('http://www.w3.org/2000/svg',name);
 
 class FleetMapProvider {
@@ -22,8 +29,8 @@ class OfflineUaeMapProvider extends FleetMapProvider {
     if(typeof maplibregl==='undefined')throw new Error('The bundled MapLibre renderer is unavailable.');
     const response=await fetch(ctx+'/api/map/metadata');if(!response.ok)throw new Error('Offline MBTiles metadata is unavailable.');this.metadata=await response.json();
     const [west,south,east,north]=this.metadata.bounds.split(',').map(Number),[lng,lat,zoom]=this.metadata.center.split(',').map(Number);bounds={minLng:west,minLat:south,maxLng:east,maxLat:north};
-    const tileUrl=FmsMapUrls.absoluteTileTemplate(window.location.origin,ctx,config.tileEndpoint);
-    this.map=new maplibregl.Map({container:'map',center:[lng,lat],zoom,attributionControl:false,style:{version:8,sources:{offline:{type:'vector',tiles:[tileUrl],minzoom:Number(this.metadata.minzoom),maxzoom:Number(this.metadata.maxzoom),bounds:[west,south,east,north],attribution:this.metadata.attribution}},layers:[
+    const tileUrl=absoluteTileTemplate(config.tileEndpoint);
+    this.map=new maplibregl.Map({container:'map',center:[lng,lat],zoom,attributionControl:false,transformRequest:sameOriginResource,style:{version:8,sources:{offline:{type:'vector',tiles:[tileUrl],minzoom:Number(this.metadata.minzoom),maxzoom:Number(this.metadata.maxzoom),bounds:[west,south,east,north],attribution:this.metadata.attribution}},layers:[
       {id:'background',type:'background',paint:{'background-color':'#0b1a2b'}},
       {id:'landuse',type:'fill',source:'offline','source-layer':'landuse',paint:{'fill-color':'#233b45','fill-opacity':.75}},
       {id:'water',type:'fill',source:'offline','source-layer':'water',paint:{'fill-color':'#0b3854'}},
