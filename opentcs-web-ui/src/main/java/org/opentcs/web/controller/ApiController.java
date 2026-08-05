@@ -22,6 +22,7 @@ import org.opentcs.web.dto.WebDtos.PlantModelDto;
 import org.opentcs.web.dto.WebDtos.PointDto;
 import org.opentcs.web.service.KernelHttpClient;
 import org.opentcs.web.service.MockFleetService;
+import org.opentcs.web.service.TelematicsService;
 import org.opentcs.web.service.WebKernelService;
 import org.opentcs.web.service.WebPlantModelService;
 import org.opentcs.web.service.WebRoutingService;
@@ -67,6 +68,7 @@ public class ApiController
                 request.getParameter("destination")
             );
         case "/map/config" -> mapConfig();
+        case "/telematics" -> TelematicsService.INSTANCE.latest();
         default -> throw new ApiException(404, "Unknown API endpoint.");
       };
       write(response, 200, result);
@@ -87,7 +89,10 @@ public class ApiController
       String path = request.getPathInfo();
       JsonNode body = mapper.readTree(request.getInputStream());
       Object result;
-      if (path.equals("/transport-orders")) {
+      if (path.equals("/telematics")) {
+        result = TelematicsService.INSTANCE.upsert(body);
+      }
+      else if (path.equals("/transport-orders")) {
         result = orderService.create(
             text(body, "name"), text(body, "source"), text(body, "destination"),
             text(body, "intendedVehicle")

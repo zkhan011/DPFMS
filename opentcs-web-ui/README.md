@@ -122,3 +122,28 @@ The MBTiles archive is a visual basemap only; the kernel never routes directly o
 When both `FMS_MOCK_DATA_ENABLED=true` and `FMS_KERNEL_MODEL_SYNC_ENABLED=true`, the web application waits for the kernel and idempotently installs model `DPW-FMS-JEBEL-ALI-V1` only when the kernel is empty/unnamed. It never overwrites a non-empty user model. The kernel is configured to save the operating model on shutdown into its persisted `kernel-data` volume, so Compose restarts retain the routing topology. Production deployments should set both flags to `false` and manage their reviewed plant model through the normal engineering workflow.
 
 The topology source is JSON text (not a binary artifact) and can be regenerated with `python3 scripts/generate-kernel-model.py`. The offline MBTiles is also represented in Git as text-only `jebel-ali.mbtiles.base64` to avoid binary-diff/upload errors; Docker decodes it and verifies `jebel-ali.mbtiles.sha256` before packaging. For local tooling, run `./scripts/materialize-offline-map.sh`.
+
+## MQTT and RabbitMQ telematics
+
+Compose now starts a local RabbitMQ broker with the MQTT and Web MQTT plugins enabled. The management UI is available at <http://localhost:15672> with the development credentials from `.env` (`dpwfms` / `dpwfms` by default), and browser/bridge MQTT-over-WebSocket is available on `ws://localhost:15675/ws`.
+
+DPW FMS exposes a small ingestion endpoint for bridge processes and device simulators:
+
+```bash
+curl -X POST http://localhost:8080/api/telematics \
+  -H 'Content-Type: application/json' \
+  -d '{"vehicleId":"DPW-001","source":"mqtt","latitude":24.9857,"longitude":55.0273,"speed":18,"heading":92,"battery":76,"status":"Moving"}'
+```
+
+The map page polls `GET /api/telematics` and displays the latest message per vehicle in the **Live telematics** panel. A production MQTT/RabbitMQ bridge should subscribe to `FMS_TELEMATICS_MQTT_TOPIC` or bind `FMS_TELEMATICS_RABBITMQ_EXCHANGE`, normalize messages to the JSON fields above, and forward them to `/api/telematics`. This keeps broker credentials out of the browser and lets the DPW FMS UI work with MQTT devices, RabbitMQ exchange consumers or an existing telematics gateway.
+
+### Clean startup checklist
+
+1. Copy configuration: `cp .env.example .env`.
+2. Build and validate map assets: `docker compose build`.
+3. Start all services: `docker compose up -d`.
+4. Confirm containers: `docker compose ps`.
+5. Follow startup logs: `docker compose logs -f kernel tiles web rabbitmq`.
+6. Open the map-first UI: <http://localhost:8080/map-overview>.
+7. If the basemap is blank, check <http://localhost:8080/api/map/metadata>, `docker compose logs tiles`, and browser Network entries for `/api/map/tiles/{z}/{x}/{y}.pbf`. The UI also loads the bundled same-origin GeoJSON reference layer so fleet markers and terminal context remain visible even when a vector tile is missing or delayed.
+8. Post the sample telematics `curl` above and verify the vehicle appears in the Live telematics panel.

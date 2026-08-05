@@ -17,6 +17,17 @@ services:
       target: tiles
     restart: unless-stopped
 
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    command: sh -c "rabbitmq-plugins enable --offline rabbitmq_mqtt rabbitmq_web_mqtt && rabbitmq-server"
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER:-dpwfms}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS:-dpwfms}
+    ports:
+      - "15672:15672"
+      - "15675:15675"
+    restart: unless-stopped
+
   web:
     build:
       context: .
@@ -47,9 +58,14 @@ services:
       MAP_ROTATION_DEGREES: ${MAP_ROTATION_DEGREES:-0}
       MAP_DEFAULT_ZOOM: ${MAP_DEFAULT_ZOOM:-18}
       GOOGLE_MAPS_API_KEY: ${GOOGLE_MAPS_API_KEY:-}
+      FMS_TELEMATICS_MQTT_URL: ${FMS_TELEMATICS_MQTT_URL:-ws://localhost:15675/ws}
+      FMS_TELEMATICS_MQTT_TOPIC: ${FMS_TELEMATICS_MQTT_TOPIC:-dpw/fms/vehicles/+/telematics}
+      FMS_TELEMATICS_RABBITMQ_URL: ${FMS_TELEMATICS_RABBITMQ_URL:-amqp://rabbitmq:5672}
+      FMS_TELEMATICS_RABBITMQ_EXCHANGE: ${FMS_TELEMATICS_RABBITMQ_EXCHANGE:-dpw.fms.telematics}
     depends_on:
       - kernel
       - tiles
+      - rabbitmq
     ports:
       - "8080:8080"
     restart: unless-stopped
